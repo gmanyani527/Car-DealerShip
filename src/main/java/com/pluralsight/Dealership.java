@@ -12,6 +12,8 @@ public class Dealership {
         this.name = name;
         this.addresss = addresss;
         this.phone = phone;
+        ArrayList<String> arrayList = new ArrayList<>();
+
     }
     public ArrayList<Vehicle> getVehiclesByPrice(double min, double max){
         return null;
