@@ -53,7 +53,7 @@ public class DealershipFileManager {
         return dealership;
     }
 
-    public static ArrayList<Dealership> saveDealership() {
-        return null;
-    }
+   // public void saveDealership(Dealership){
+
+    //}
 }
