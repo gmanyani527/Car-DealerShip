@@ -147,7 +147,7 @@ private Dealership dealership1;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter car type your want to search for: ");
         String type = scanner.nextLine();
-        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByMileage(type);
+        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByType(type);
 
         displayVehicles(results);
     }
@@ -158,9 +158,42 @@ private Dealership dealership1;
         }
     }
 
-    public void processAddVehicleRequest(){}
+    public void processAddVehicleRequest(){
+        Scanner scanner = new Scanner(System.in);
 
-    public void processRemoveVehicleRequest(){}
+        System.out.print("Enter VIN number: ");
+        int vin = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Enter Make: ");
+        String make = scanner.nextLine();
+
+        System.out.print("Enter Model: ");
+        String model = scanner.nextLine();
+
+        System.out.print("Enter Year: ");
+        int year = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Enter Vehicle Type: ");
+        String type = scanner.nextLine();
+
+        System.out.print("Enter Color: ");
+        String color = scanner.nextLine();
+
+        System.out.print("Enter Odometer Reading: ");
+        int odometer = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Enter Price: ");
+        double price = Double.parseDouble(scanner.nextLine());
+
+        Vehicle newVehicle = new Vehicle(vin,make,year,model,type,odometer,price);
+        dealership1.addVehicle(newVehicle);
+
+
+    }
+
+    public void processRemoveVehicleRequest(){
+
+    }
 
 
 

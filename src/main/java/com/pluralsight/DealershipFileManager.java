@@ -1,10 +1,14 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.io.IOException;
+
 
 public class DealershipFileManager {
 
@@ -53,7 +57,31 @@ public class DealershipFileManager {
         return dealership;
     }
 
-   // public void saveDealership(Dealership){
 
-    //}
+        public void saveDealership (Dealership dealership){
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("dealership.csv"))) {
+                writer.write(dealership.getName() + "," + dealership.getAddresss() + "," + dealership.getPhone());
+                writer.newLine();
+
+                for(Vehicle vehicle : dealership.getAllVehicles()){
+                    String line = vehicle.getVin() + "|" +
+                            vehicle.getMake() + "|" +
+                            vehicle.getYear() + "|" +
+                            vehicle.getModel() + "|" +
+                            vehicle.getVehicleType() + "|" +
+                            vehicle.getColor() + "|" +
+                            vehicle.getOdometer() + "|" +
+                            vehicle.getPrice();
+
+                    writer. write(line);
+                    writer.newLine();
+
+                }
+            }
+            catch (Exception e){
+                System.out.println("Error saving dealership: " + e.getMessage());
+
+            }
+        }
+
 }

@@ -94,6 +94,15 @@ public class Dealership {
         System.out.println("Removed vehicle: " + vehicle);
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public String getAddresss() {
+        return addresss;
+    }
 
+    public String getPhone() {
+        return phone;
+    }
 }
