@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 public class UserInterface {
 
@@ -77,15 +78,50 @@ private Dealership dealership1;
         dealership = new DealershipFileManager();
     }
 
-    private void displayVehicles(){
-        return;
+    private void displayVehicles(ArrayList<Vehicle> vehicles){
+        if (vehicles == null || vehicles.isEmpty()) {
+            System.out.println("No vehicles found.");
+            return;
+        }
+
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle);
+        }
+
     }
 
-    public void processGetByPriceRequest(){}
+    public void processGetByPriceRequest(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the lowest price you want to search for: ");
+        double price1 = scanner.nextDouble();
+        System.out.println("Enter the highest price you want to search for: ");
+        double price2 = scanner.nextDouble();
+        ArrayList<Vehicle> results = dealership.getDealership().getVehiclesByPrice(price1, price2);
 
-    public void processGetByMakeModelRequest(){}
+        displayVehicles(results);
+    }
 
-    public void processGetByYearRequest(){}
+    public void processGetByMakeModelRequest(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter make you want to search for: ");
+       String make = scanner.nextLine();
+        System.out.println("Enter the model you want to search for: ");
+        String model = scanner.nextLine();
+        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByMakeModel(make, model);
+
+        displayVehicles(results);
+    }
+
+    public void processGetByYearRequest(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter earliest model year to include: ");
+        int minYear = scanner.nextInt();
+        System.out.println("Enter the latest model year to include: ");
+        int maxYear = scanner.nextInt();
+        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByYear(minYear, maxYear);
+
+        displayVehicles(results);
+    }
 
     public void processGetByColorRequest(){}
 
