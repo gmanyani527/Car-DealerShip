@@ -123,11 +123,34 @@ private Dealership dealership1;
         displayVehicles(results);
     }
 
-    public void processGetByColorRequest(){}
+    public void processGetByColorRequest(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter color your want to search for: ");
+        String color = scanner.nextLine();
+        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByColor(color);
 
-    public void processGetByMileageRequest(){}
+        displayVehicles(results);
+    }
 
-    public void processGetByVehicleTypeRequest(){}
+    public void processGetByMileageRequest(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter car minimum mileage your want to search for: ");
+        double minMileage = scanner.nextDouble();
+        System.out.println("Enter car maximum mileage your want to search for: ");
+        double maxMileage = scanner.nextDouble();
+        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByMileage(minMileage, maxMileage);
+
+        displayVehicles(results);
+    }
+
+    public void processGetByVehicleTypeRequest(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter car type your want to search for: ");
+        String type = scanner.nextLine();
+        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByMileage(type);
+
+        displayVehicles(results);
+    }
 
     public void processGetAllVehicleRequest(){
         for (Vehicle v : dealership1.getAllVehicles()) {
