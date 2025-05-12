@@ -86,10 +86,12 @@ public class Dealership {
 
     public void addVehicle(Vehicle vehicle){
         inventory.add(vehicle);
+        System.out.println("Added vehicle: " + vehicle);
     }
 
     public void removeVehicle(Vehicle vehicle){
         inventory.remove(vehicle);
+        System.out.println("Removed vehicle: " + vehicle);
     }
 
 
