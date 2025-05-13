@@ -20,7 +20,7 @@ public class DealershipFileManager {
             String line;
 
             if ((line = br.readLine()) != null) {
-                String[] dealerInfo = line.split(",");
+                String[] dealerInfo = line.split("\\|");
                 String name = dealerInfo[0];
                 String address = dealerInfo[1];
                 String phone = dealerInfo[2];
@@ -33,7 +33,7 @@ public class DealershipFileManager {
                     continue; // skip empty lines
                 }
                 String[] parts = line.split("\\|");
-                if (parts.length != 5) {
+                if (parts.length != 8) {
                     System.out.println("Skipping bad line: " + line);
                     continue; // skip invalid lines
                 }
@@ -60,7 +60,7 @@ public class DealershipFileManager {
 
         public void saveDealership (Dealership dealership){
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("dealership.csv"))) {
-                writer.write(dealership.getName() + "," + dealership.getAddresss() + "," + dealership.getPhone());
+                writer.write(dealership.getName() + "," + dealership.getAddress() + "," + dealership.getPhone());
                 writer.newLine();
 
                 for(Vehicle vehicle : dealership.getAllVehicles()){

@@ -98,7 +98,7 @@ public class Dealership {
         return name;
     }
 
-    public String getAddresss() {
+    public String getAddress() {
         return addresss;
     }
 
