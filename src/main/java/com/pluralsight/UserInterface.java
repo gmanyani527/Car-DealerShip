@@ -74,8 +74,9 @@ private Dealership dealership1;
 
 
     private void init(){
-        dealership1 = dealership.getDealership();
         dealership = new DealershipFileManager();
+        dealership1 = dealership.getDealership();
+
     }
 
     private void displayVehicles(ArrayList<Vehicle> vehicles){
@@ -96,7 +97,7 @@ private Dealership dealership1;
         double price1 = scanner.nextDouble();
         System.out.println("Enter the highest price you want to search for: ");
         double price2 = scanner.nextDouble();
-        ArrayList<Vehicle> results = dealership.getDealership().getVehiclesByPrice(price1, price2);
+        ArrayList<Vehicle> results = dealership1.getVehiclesByPrice(price1, price2);
 
         displayVehicles(results);
     }
@@ -107,7 +108,7 @@ private Dealership dealership1;
        String make = scanner.nextLine();
         System.out.println("Enter the model you want to search for: ");
         String model = scanner.nextLine();
-        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByMakeModel(make, model);
+        ArrayList<Vehicle> results = dealership1.getVehicleByMakeModel(make, model);
 
         displayVehicles(results);
     }
@@ -118,7 +119,7 @@ private Dealership dealership1;
         int minYear = scanner.nextInt();
         System.out.println("Enter the latest model year to include: ");
         int maxYear = scanner.nextInt();
-        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByYear(minYear, maxYear);
+        ArrayList<Vehicle> results = dealership1.getVehicleByYear(minYear, maxYear);
 
         displayVehicles(results);
     }
@@ -127,7 +128,7 @@ private Dealership dealership1;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter color your want to search for: ");
         String color = scanner.nextLine();
-        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByColor(color);
+        ArrayList<Vehicle> results = dealership1.getVehicleByColor(color);
 
         displayVehicles(results);
     }
@@ -138,7 +139,7 @@ private Dealership dealership1;
         double minMileage = scanner.nextDouble();
         System.out.println("Enter car maximum mileage your want to search for: ");
         double maxMileage = scanner.nextDouble();
-        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByMileage(minMileage, maxMileage);
+        ArrayList<Vehicle> results = dealership1.getVehicleByMileage(minMileage, maxMileage);
 
         displayVehicles(results);
     }
@@ -147,7 +148,7 @@ private Dealership dealership1;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter car type your want to search for: ");
         String type = scanner.nextLine();
-        ArrayList<Vehicle> results = dealership.getDealership().getVehicleByType(type);
+        ArrayList<Vehicle> results = dealership1.getVehicleByType(type);
 
         displayVehicles(results);
     }
@@ -187,7 +188,8 @@ private Dealership dealership1;
 
         Vehicle newVehicle = new Vehicle(vin,make,year,model,type, color,odometer,price);
         dealership1.addVehicle(newVehicle);
-
+        dealership.saveDealership(dealership1);
+        System.out.println("Vehicle saved successfully");
 
     }
 
@@ -210,11 +212,9 @@ private Dealership dealership1;
             dealership.saveDealership(dealership1);
             System.out.println("Vehicle removed successfully");
         } else{
-            System.out.println("Vehicel with a vin " + vin + " not found");
+            System.out.println("Vehicle with a vin " + vin + " not found");
         }
 
-
-        
     }
 
 
