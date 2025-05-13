@@ -180,19 +180,41 @@ private Dealership dealership1;
         String color = scanner.nextLine();
 
         System.out.print("Enter Odometer Reading: ");
-        int odometer = Integer.parseInt(scanner.nextLine());
+        int odometer = scanner.nextInt();
 
         System.out.print("Enter Price: ");
-        double price = Double.parseDouble(scanner.nextLine());
+        double price = scanner.nextDouble();
 
-        Vehicle newVehicle = new Vehicle(vin,make,year,model,type,odometer,price);
+        Vehicle newVehicle = new Vehicle(vin,make,year,model,type, color,odometer,price);
         dealership1.addVehicle(newVehicle);
 
 
     }
 
     public void processRemoveVehicleRequest(){
+        Vehicle toRemove = null;
 
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Vehicle> results = dealership1.getAllVehicles();
+
+        System.out.print("Enter VIN number: ");
+        int vin = Integer.parseInt(scanner.nextLine());
+        for (Vehicle vehicle : results) {
+            if(vin == vehicle.getVin()){
+                toRemove = vehicle;
+                break;
+            }
+        }
+        if(toRemove != null){
+            dealership1.removeVehicle(toRemove);
+            dealership.saveDealership(dealership1);
+            System.out.println("Vehicle removed successfully");
+        } else{
+            System.out.println("Vehicel with a vin " + vin + " not found");
+        }
+
+
+        
     }
 
 
