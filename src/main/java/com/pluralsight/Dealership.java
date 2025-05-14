@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 public class Dealership {
     private String name;
@@ -86,7 +85,7 @@ public class Dealership {
 
     public void addVehicle(Vehicle vehicle){
         inventory.add(vehicle);
-        System.out.println("Added vehicle: " + vehicle);
+      //  System.out.println("Added vehicle: " + vehicle);
     }
 
     public void removeVehicle(Vehicle vehicle){

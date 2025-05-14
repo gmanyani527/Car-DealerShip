@@ -4,10 +4,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.io.IOException;
 
 
 public class DealershipFileManager {
@@ -38,8 +34,8 @@ public class DealershipFileManager {
                     continue; // skip invalid lines
                 }
                 int vin = Integer.parseInt(parts[0]);
-                String make = parts[1];
-                int year = Integer.parseInt(parts[2]);
+                int year = Integer.parseInt(parts[1]);
+                String make = parts[2];
                 String model = parts[3];
                 String vehicleType = parts[4];
                 String color = parts[5];

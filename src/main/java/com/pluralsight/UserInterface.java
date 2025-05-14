@@ -12,49 +12,59 @@ private Dealership dealership1;
             Scanner scanner = new Scanner(System.in);
             boolean running = true;
        while(running){
-
+           displayMenu(); // So users see options every time
 
            System.out.println("Enter your choice: ");
            String input = scanner.nextLine();
 
-           switch (input){
+           switch (input) {
                case "1":
-                   processGetByPriceRequest();
+                   processGetAllVehicleRequest(); // View All Vehicles
                    break;
 
                case "2":
-                   processGetByMakeModelRequest();
+                   processGetByPriceRequest(); // Search By Price
                    break;
+
                case "3":
-                   processGetByYearRequest();
+                   processGetByMakeModelRequest(); // Search by Make/Model
                    break;
+
                case "4":
-                   processGetByColorRequest();
+                   processGetByYearRequest(); // Search by Year
                    break;
+
                case "5":
-                   processGetByMileageRequest();
+                   processGetByColorRequest(); // Search by Color
                    break;
+
                case "6":
-                   processGetByVehicleTypeRequest();
+                   processGetByMileageRequest(); // Search by Mileage
                    break;
+
                case "7":
-                   processGetAllVehicleRequest();
+                   processGetByVehicleTypeRequest(); // Search by Vehicle Type
                    break;
+
                case "8":
-                   processAddVehicleRequest();
+                   processAddVehicleRequest(); // Add a Vehicle
                    break;
+
                case "9":
-                   processRemoveVehicleRequest();
+                   processRemoveVehicleRequest(); // Remove a Vehicle
                    break;
+
                case "0":
                    System.out.println("Goodbye!");
                    running = false;
                    break;
+
                default:
-                   System.out.println("Invalid choice. Please try again");
+                   System.out.println("Invalid choice. Please try again.");
            }
 
-    }
+
+       }
 
     }
 
