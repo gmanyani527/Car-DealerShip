@@ -95,9 +95,18 @@ private Dealership dealership1;
             return;
         }
 
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle);
+        System.out.println("\n---------------------------------------------------------------------------------------------");
+        System.out.printf("| %-7s | %-4s | %-10s | %-10s | %-8s | %-8s | %-8s | %-10s |\n",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Odometer", "Price");
+        System.out.println("---------------------------------------------------------------------------------------------");
+
+        for (Vehicle v : vehicles) {
+            System.out.printf("| %-7d | %-4d | %-10s | %-10s | %-8s | %-8s | %-8d | $%-9.2f |\n",
+                    v.getVin(), v.getYear(), v.getMake(), v.getModel(),
+                    v.getVehicleType(), v.getColor(), v.getOdometer(), v.getPrice());
         }
+
+        System.out.println("---------------------------------------------------------------------------------------------\n");
 
     }
 
@@ -164,9 +173,8 @@ private Dealership dealership1;
     }
 
     public void processGetAllVehicleRequest(){
-        for (Vehicle v : dealership1.getAllVehicles()) {
-            System.out.println(v);
-        }
+        ArrayList<Vehicle> allVehicles = dealership1.getAllVehicles();
+        displayVehicles(allVehicles);
     }
 
     public void processAddVehicleRequest(){
