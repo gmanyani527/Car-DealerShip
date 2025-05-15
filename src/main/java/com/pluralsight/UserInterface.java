@@ -192,14 +192,14 @@ private Dealership dealership1;
         System.out.print("Enter VIN number: ");
         int vin = Integer.parseInt(scanner.nextLine());
 
+        System.out.print("Enter Year: ");
+        int year = Integer.parseInt(scanner.nextLine());
+
         System.out.print("Enter Make: ");
         String make = scanner.nextLine();
 
         System.out.print("Enter Model: ");
         String model = scanner.nextLine();
-
-        System.out.print("Enter Year: ");
-        int year = Integer.parseInt(scanner.nextLine());
 
         System.out.print("Enter Vehicle Type: ");
         String type = scanner.nextLine();
@@ -208,12 +208,15 @@ private Dealership dealership1;
         String color = scanner.nextLine();
 
         System.out.print("Enter Odometer Reading: ");
-        int odometer = scanner.nextInt();
+        int odometer = Integer.parseInt(scanner.nextLine());
 
         System.out.print("Enter Price: ");
-        double price = scanner.nextDouble();
+        double price = Double.parseDouble(scanner.nextLine());
 
-        Vehicle newVehicle = new Vehicle(vin,make,year,model,type, color,odometer,price);
+        // Match constructor order: vin, year, make, model, type, color, odometer, price
+        Vehicle newVehicle = new Vehicle(vin, make, year, model, type, color, odometer, price);
+
+
         dealership1.addVehicle(newVehicle);
         dealership.saveDealership(dealership1);
         System.out.println("Vehicle saved successfully");
@@ -221,6 +224,7 @@ private Dealership dealership1;
     }
 
     public void processRemoveVehicleRequest(){
+        processGetAllVehicleRequest();
         Vehicle toRemove = null;
 
         Scanner scanner = new Scanner(System.in);
