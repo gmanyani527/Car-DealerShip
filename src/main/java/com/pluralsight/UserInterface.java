@@ -9,7 +9,12 @@ private Dealership dealership1;
 
     public void display(){
         init();
-            Scanner scanner = new Scanner(System.in);
+        printWelcomeBanner();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nPress ENTER to continue...");
+        scanner.nextLine();  // wait for user
+
             boolean running = true;
        while(running){
            displayMenu(); // So users see options every time
@@ -72,11 +77,11 @@ private Dealership dealership1;
         System.out.println("\n ******* Dealership Menu *******");
         System.out.println("1. View All Vehicles");
         System.out.println("2. Search By Price");
-        System.out.println("3. Search by Make/Model (Ex: Toyota... Ferrari ... PAGANNIII");
-        System.out.println("4. Search by Year (Ex: Simply the Year DUHHHH JK JK");
-        System.out.println("5. Search by Color (Ex: Hopefully your not color blind LOL");
-        System.out.println("6. Search by Mileage (Ex: Car Traveled how much... hopefully not too much");
-        System.out.println("7. Search by Vehicle Type (Ex: Sedan and SUV");
+        System.out.println("3. Search by Make/Model (Ex: Toyota... Ferrari ... PAGANNIII)");
+        System.out.println("4. Search by Year (Ex: Simply the Year DUHHHH JK JK)");
+        System.out.println("5. Search by Color (Ex: Hopefully your not color blind LOL)");
+        System.out.println("6. Search by Mileage (Ex: Car Traveled how much... hopefully not too much)");
+        System.out.println("7. Search by Vehicle Type (Ex: Sedan and SUV)");
         System.out.println("8. Add a Vehicle ");
         System.out.println("9. Remove a Vehicle");
         System.out.println("0. Quit");
@@ -238,6 +243,17 @@ private Dealership dealership1;
         }
 
     }
+
+    public void printWelcomeBanner() {
+        System.out.println("==============================================================");
+        System.out.println("||                                                          ||");
+        System.out.printf ("||        WELCOME TO %-39s||\n", dealership1.getName().toUpperCase());
+        System.out.printf ("||        ADDRESS: %-41s||\n", dealership1.getAddress());
+        System.out.printf ("||        PHONE:   %-41s||\n", dealership1.getPhone());
+        System.out.println("||                                                          ||");
+        System.out.println("==============================================================");
+    }
+
 
 
 
