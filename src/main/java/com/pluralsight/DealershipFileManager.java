@@ -12,7 +12,7 @@ public class DealershipFileManager {
         Dealership dealership = null;
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("dealership.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\gmany\\OneDrive\\Desktop\\Pluralsight\\workshops\\Car Dealership\\untitled\\dealership.csv"));
             String line;
 
             if ((line = br.readLine()) != null) {
@@ -55,7 +55,7 @@ public class DealershipFileManager {
 
 
         public void saveDealership (Dealership dealership){
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter("dealership.csv"))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\gmany\\OneDrive\\Desktop\\Pluralsight\\workshops\\Car Dealership\\untitled\\dealership.csv"))) {
                 writer.write(dealership.getName() + "," + dealership.getAddress() + "," + dealership.getPhone());
                 writer.newLine();
 
