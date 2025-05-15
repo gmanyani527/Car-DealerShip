@@ -72,12 +72,12 @@ private Dealership dealership1;
         System.out.println("\n ******* Dealership Menu *******");
         System.out.println("1. View All Vehicles");
         System.out.println("2. Search By Price");
-        System.out.println("3. Search by Make/Model");
-        System.out.println("4. Search by Year");
-        System.out.println("5. Search by Color");
-        System.out.println("6. Search by Mileage");
-        System.out.println("7. Search by Vehicle Type");
-        System.out.println("8. Add a Vehicle");
+        System.out.println("3. Search by Make/Model (Ex: Toyota... Ferrari ... PAGANNIII");
+        System.out.println("4. Search by Year (Ex: Simply the Year DUHHHH JK JK");
+        System.out.println("5. Search by Color (Ex: Hopefully your not color blind LOL");
+        System.out.println("6. Search by Mileage (Ex: Car Traveled how much... hopefully not too much");
+        System.out.println("7. Search by Vehicle Type (Ex: Sedan and SUV");
+        System.out.println("8. Add a Vehicle ");
         System.out.println("9. Remove a Vehicle");
         System.out.println("0. Quit");
     }
@@ -112,12 +112,16 @@ private Dealership dealership1;
 
     public void processGetByPriceRequest(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the lowest price you want to search for: ");
-        double price1 = scanner.nextDouble();
-        System.out.println("Enter the highest price you want to search for: ");
-        double price2 = scanner.nextDouble();
-        ArrayList<Vehicle> results = dealership1.getVehiclesByPrice(price1, price2);
 
+        System.out.println("Enter the lowest price you want to search for (e.g. 10,000 or 10000): ");
+        String lowStr = scanner.nextLine().replace(",", "").trim();
+        double price1 = Double.parseDouble(lowStr);
+
+        System.out.println("Enter the highest price you want to search for (e.g. 20,000 or 20000): ");
+        String highStr = scanner.nextLine().replace(",", "").trim();
+        double price2 = Double.parseDouble(highStr);
+
+        ArrayList<Vehicle> results = dealership1.getVehiclesByPrice(price1, price2);
         displayVehicles(results);
     }
 
