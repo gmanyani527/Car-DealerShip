@@ -43,9 +43,8 @@ Instructions on how to set up and run the project using IntelliJ IDEA.
 
 ## Demo
 
-_Add a GIF or screenshot if available. Example below:_
 
-![CarDealershipGIF.gif](DealershipScreenshot/CarDealershipGIF.gif)
+![CarDealershipGIF.gif](CarDealershipDEMOScreenshot/CarDealershipDEMO.gif)
 
 ## File Format
 
